@@ -3,7 +3,6 @@ import styled from "styled-components";
 import COLORS from "../../../Data/colors";
 import { nanoid } from "nanoid";
 const Container = styled.div`
-  margin-bottom: 128px;
   hr {
     margin-bottom: 2rem;
   }
@@ -53,7 +52,7 @@ const Icon = styled.div`
 
 const line = ({ title, image, paragraphs, index }) => {
   return (
-    <Container>
+    <Container className="section">
       <Title>
         <Text>
           <Icon colors={COLORS}>

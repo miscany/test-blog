@@ -55,8 +55,10 @@ const TopSection = styled.div`
   }
 `;
 const PlaceToggle = styled.div`
-  width: 100px;
+  width: 200px;
   margin: 0 auto 4rem;
+  display: flex;
+  justify-content: center;
 `;
 const SectionHalf = styled.div`
   flex: 1;

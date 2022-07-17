@@ -38,7 +38,7 @@ const Container = styled.div`
 `;
 const SectionTwo = () => {
   return (
-    <Container colors={COLORS}>
+    <Container colors={COLORS} className="section">
       <div className="flex-cont">
         <div className="flex-one">
           <div className="text">

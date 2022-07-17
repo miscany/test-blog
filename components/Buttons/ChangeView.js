@@ -3,15 +3,17 @@ import styled from "styled-components";
 import COLORS from "../../Data/colors";
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .label {
     background-color: ${(props) => props.colors.darkBlue};
-    width: 100px;
-    height: 80px;
-    display: flex;
-    align-items: center;
+    padding: 0.5rem;
+    width: 144px;
+    text-align: center;
     margin-bottom: 0.25rem;
     border-radius: 0.5rem;
-    text-align: center;
+
     h4 {
       color: ${(props) => props.colors.veryLightBlue};
     }

@@ -8,7 +8,7 @@ $light-black: #4e4e4e;
 $cornflower-blue: #6495ed;
 $blue: #1e90ff;
 $light-grey: #f5f5f5;
-$primary-color: #009e6c;
+$primary-color: #50c878;
 $border-color: #eee;
 $bg-color: #f9f9f9;
 $error-color: red;
@@ -68,6 +68,12 @@ h6 {
 }
 .red {
   color: $dark-red;
+}
+.base-spacer {
+  margin-bottom: 128px;
+}
+.section {
+  margin-bottom: 196px !important;
 }
 .bg {
   background-image: url("../public/underWork.gif");

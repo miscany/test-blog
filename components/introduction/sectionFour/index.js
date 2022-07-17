@@ -1,7 +1,9 @@
+import { nanoid } from "nanoid";
 import React from "react";
 import styled from "styled-components";
 import COLORS from "../../../Data/colors";
 import SectionIcon from "./SectionIcon";
+const Container = styled.div``;
 const Header = styled.div`
   background-color: ${(props) => props.colors.ultraLightBlue};
   padding: 2rem 0;
@@ -30,6 +32,7 @@ const index = () => {
   const SectionElems = sections.map((section) => {
     return (
       <SectionIcon
+        key={nanoid()}
         title={section.title}
         index={section.index}
         link={section.link}
@@ -37,12 +40,12 @@ const index = () => {
     );
   });
   return (
-    <>
-      <Header colors={COLORS}>
+    <Container className="section">
+      <Header colors={COLORS} className="base-spacer">
         <h2>How Can You Start?</h2>
       </Header>
       <SelectCont>{SectionElems}</SelectCont>
-    </>
+    </Container>
   );
 };
 
