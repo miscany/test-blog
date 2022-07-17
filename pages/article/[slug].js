@@ -98,22 +98,20 @@ const Tags = styled.div`
     background: #fff;
     padding: 8px;
     position: relative;
-    .center-this{
-      width:130px;
+    .center-this {
+      width: 130px;
       margin: 0 auto;
     }
-    
-    
-    }
-    h3 {
-      display: inline-block;
-      margin-right: 8px;
-    }
-    .icon-blue {
-      position: relative;
-      top: 5px;
-    }
   }
+  h3 {
+    display: inline-block;
+    margin-right: 8px;
+  }
+  .icon-blue {
+    position: relative;
+    top: 5px;
+  }
+
   .tag-list {
     padding: 1rem;
     background: ${(props) => props.colors.grey};
@@ -212,8 +210,8 @@ const slug = ({ article, articles }) => {
     return tagColors[Math.floor(Math.random() * tagColors.length)];
   }
   const SEO = {
-    title: "can this work",
-    description: "or nah",
+    title: article.title,
+    description: article.description,
     images: [
       {
         url: article.coverImage.url,
