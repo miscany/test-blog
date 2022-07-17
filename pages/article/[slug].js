@@ -212,8 +212,8 @@ const slug = ({ article, articles }) => {
     return tagColors[Math.floor(Math.random() * tagColors.length)];
   }
   const SEO = {
-    title: article.title,
-    description: article.description,
+    title: "can this work",
+    description: "or nah",
     images: [
       {
         url: article.coverImage.url,
