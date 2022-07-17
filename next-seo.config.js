@@ -1,17 +1,27 @@
 export default {
-  title: "Aajonus Vonderplanitz Primal Diet",
-  description: "Collection of Raw Primal diet knowledge",
+  title: "Raw Primal Search Bar",
+  description: "Search for Aajonus Vonderplanitz articles",
   keywords: [
-    "website",
-    "aajonus vonderplanitz",
+    "Aajonus Vonderplanitz",
     "raw primal diet",
-    "information",
+    "raw meat",
+    "raw primal search",
   ],
+  canonical: "https://www.primalenjoyer.com/",
 
   openGraph: {
     type: "website",
     locale: "en_ID",
-    url: "https://aajonusworld.vercel.app/",
-    site_name: "Aajonus World",
+    url: "https://www.primalenjoyer.com/",
+    site_name: "Raw Primal Search Bar",
+    description: "Search for Aajonus Vonderplanitz articles",
+    images: [
+      {
+        url: "/website.PNG",
+        width: 800,
+        height: 600,
+        alt: "Raw Primal Search",
+      },
+    ],
   },
 };

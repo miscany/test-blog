@@ -395,7 +395,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
         </PlaceToggle>
         <Header>
           <Title colors={COLORS}>
-            <h1 className="light green">{articlesLength}</h1>
+            <h2 className="light green">{articlesLength}</h2>
           </Title>
         </Header>
         <SectionSplit style={{ flexDirection: style }}>

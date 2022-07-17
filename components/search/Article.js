@@ -39,7 +39,7 @@ const TextContent = styled.div`
 const Article = (props) => {
   return (
     <Link href={`/article/${props.article.title}`} passHref>
-      <a rel="noopener noreferrer">
+      <a title={props.article.title} rel="noopener noreferrer">
         <ArticleCont>
           <div className="flex-one image-cont">
             <img alt="cover image" src={props.article.coverImage.url} />
