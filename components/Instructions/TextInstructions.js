@@ -33,7 +33,7 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-   -ms-box-orient: horizontal;
+  -ms-box-orient: horizontal;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -41,8 +41,10 @@ const ListItem = styled.li`
   display: -webkit-flex;
   display: flex;
 
-  -webkit-justify-content: space-between; 
-  justify-content: space-between; 
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
   gap: 8px;
   margin-bottom: 1rem;
 `;
