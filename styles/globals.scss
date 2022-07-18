@@ -28,6 +28,7 @@ p {
   font-size: 18px;
   line-height: 1.5;
   color: $off-black;
+  
 }
 .lg-bold {
   font-size: 26px;
@@ -69,11 +70,21 @@ h6 {
 .red {
   color: $dark-red;
 }
-.base-spacer {
+.mar-one{
+  margin-bottom:1rem;
+}
+.sm-spacer {
   margin-bottom: 128px;
+}
+.md-spacer {
+  margin-bottom: 156px;
 }
 .section {
   margin-bottom: 196px !important;
+}
+.bold-blue {
+  font-weight: 500;
+  background-color: $dark-blue;
 }
 .bg {
   background-image: url("../public/underWork.gif");
@@ -173,6 +184,7 @@ h4 {
 }
 h5 {
   font-size: 1.25rem;
+  color: $dark-blue;
 }
 a {
   text-decoration: none;
