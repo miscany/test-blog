@@ -5,7 +5,7 @@ import COLORS from "../../../Data/colors";
 import SectionIcon from "./SectionIcon";
 import ArticleTitle from "./ArticleTitle";
 const Container = styled.div`
-  text-align: left;
+  
   p {
     margin-bottom: 1rem;
   }
@@ -35,8 +35,9 @@ const SelectCont = styled.div`
 `;
 
 const ArticlesCont = styled.div`
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
+  text-align: left;
   .text-content {
     border: 1px solid ${(props) => props.colors.darkBlue};
   }
@@ -46,7 +47,7 @@ const Article = styled.article`
   .article-text {
     width: 100%;
     background-color: ${(props) => props.colors.veryLightBlue};
-    padding: 0.5rem;
+    padding: 1rem;
     border: 1px solid ${(props) => props.colors.darkBlue};
   }
 `;
@@ -76,7 +77,7 @@ const index = () => {
       </Header>
       <SelectCont className="md-spacer">{SectionElems}</SelectCont>
       <ArticlesCont colors={COLORS}>
-        <Article colors={COLORS}>
+        <Article id="one" className="sm-spacer" colors={COLORS}>
           <ArticleTitle
             title='Read "We Want To Live" '
             index="1"
@@ -91,7 +92,7 @@ const index = () => {
         </Article>
         {/* End of Article #1*/}
 
-        <Article colors={COLORS}>
+        <Article id="two" className="sm-spacer" colors={COLORS}>
           <ArticleTitle title="Listen To The Workshop" index="2" />
           <div className="article-text">
             <p>
@@ -99,7 +100,8 @@ const index = () => {
               here. It provides the basic introduction to the diet. It clarifies
               the theory behind raw meat, bacteria, and viruses.
             </p>
-            <a rel = 'noreferrer'
+            <a
+              rel="noreferrer"
               target="_blank"
               href="https://www.youtube.com/watch?v=ZJbgJmXIxAo&list=PLA4-m0Jyxx3mHBv5fxOwmyWYton1z_4qk"
               className="link"
@@ -110,7 +112,7 @@ const index = () => {
         </Article>
         {/* End of Article #2*/}
 
-        <Article colors={COLORS}>
+        <Article id="three" colors={COLORS} className="sm-spacer">
           <ArticleTitle title="Listen To One Q&A" index="3" />
           <div className="article-text">
             <p>
@@ -119,7 +121,8 @@ const index = () => {
               about specific health conditions and how to reverse them with diet
               alone and specific formulas.
             </p>
-            <a rel = 'noreferrer'
+            <a
+              rel="noreferrer"
               target="_blank"
               href="https://www.youtube.com/channel/UCdHSzt83x7LjGcdNTJu2LSA/videos"
               className="link"
@@ -130,7 +133,7 @@ const index = () => {
         </Article>
         {/* End of Article #3*/}
 
-        <Article colors={COLORS}>
+        <Article id="four" className="sm-spacer" colors={COLORS}>
           <ArticleTitle title="Find Farms or Butchers Near You" index="4" />
           <div className="article-text">
             <p>
@@ -151,7 +154,8 @@ const index = () => {
             <h5 className="mar-one">Here Are Some Online Tools For The US</h5>
             <ul>
               <li>
-                <a rel = 'noreferrer' 
+                <a
+                  rel="noreferrer"
                   target="_blank"
                   href="https://www.realmilk.com/raw-milk-finder/"
                   className="link"
@@ -160,23 +164,33 @@ const index = () => {
                 </a>
               </li>
               <li>
-                <a  rel = 'noreferrer' target="_blank" href="" className="link"></a>
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  href=""
+                  className="link"
+                ></a>
               </li>
               <li>
-                <a  rel = 'noreferrer' target="_blank" href="" className="link"></a>
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  href=""
+                  className="link"
+                ></a>
               </li>
             </ul>
           </div>
         </Article>
         {/* End of Article #4*/}
 
-        <Article colors={COLORS}>
+        <Article id="five" colors={COLORS}>
           <ArticleTitle title="Time To Eat Raw Meat" index="5" />
           <div className="article-text">
             <p>
               I would personally suggest just diving right into your first raw
               meal. Here is a good steak tartare recipe{" "}
-              <a  rel = 'noreferrer' href="#" className="link">
+              <a rel="noreferrer" href="#" className="link">
                 Dead Link
               </a>
               .
@@ -187,19 +201,19 @@ const index = () => {
             <ul className="mar-one">
               <li>
                 Milkshakes (raw milk, eggs, honey, fruit (optional)){" "}
-                <a rel = 'noreferrer' href="#" className="link">
+                <a rel="noreferrer" href="#" className="link">
                   Dead Link
                 </a>
               </li>
               <li>
                 Fresh red meat (feel free to put this sauce on it){" "}
-                <a rel = 'noreferrer'  href="#" className="link">
+                <a rel="noreferrer" href="#" className="link">
                   Dead Link
                 </a>
               </li>
               <li>
                 Raw Fish (try this recipe){" "}
-                <a rel = 'noreferrer' href="#" className="link">
+                <a rel="noreferrer" href="#" className="link">
                   Dead Link
                 </a>
               </li>
@@ -207,7 +221,7 @@ const index = () => {
               <li>Raw Dairy (raw cheese, butter</li>
               <li>
                 Ice Cream (try this recipe){" "}
-                <a rel = 'noreferrer' href="#" className="link">
+                <a rel="noreferrer" href="#" className="link">
                   Dead Link
                 </a>
               </li>
@@ -216,7 +230,69 @@ const index = () => {
               Some advanced foods you may not be ready for...
             </h5>
             <ul>
-              <li>Rotten meat (liver is best, but may cause detox) <a rel = 'noreferrer' target = '_blank' href="" className="link"></a></li>
+              <li>
+                Rotten meat (liver is best, but may cause detox){" "}
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  href="https://www.youtube.com/watch?v=fmMN3ZdPXXc&t=9s"
+                  className="link"
+                >
+                  How To Make High Meat by Sv3rige
+                </a>
+              </li>
+              <li>
+                Organs (liver, brain, pancreas), which are good for repairing
+                your own organs
+              </li>
+              <li>Raw Chicken</li>
+              <li>Raw Pork (I was grossed out by this for awhile)</li>
+              <li>
+                Raw Eggs. Some people are grossed out by eggs for some reason,
+                so you can start with egg yolks in your steak tartar, but whole
+                eggs are recommended
+              </li>
+            </ul>
+            <p>
+              Eating raw meat can take awhile to get used to. Don’t feel bad if
+              you aren’t quite used to it and end up cheating. Aajonus said,{" "}
+              <em>
+                ‘If you only eat one raw food in your whole life, you will be
+                that much healthier”
+              </em>
+              . So, if you only eat 50% raw, you are still 50% more healthy.{" "}
+            </p>
+            <h5 className="mar-one">
+              So, if you really still aren’t up for the whole raw meat thing.
+              Feel free to slowly transition and here are some food ideas...
+            </h5>
+            <ul>
+              <li>
+                Rare cooked steak/hamburger (if you are used to eating it rare,
+                raw isn't much different)
+              </li>
+              <li>Sushi/Sashimi</li>
+              <li>
+                Sourdough bread/potatoes/rice with lots of raw butter (Aajonus
+                doesn't recommend grains anymore, but you may find this useful)
+              </li>
+              <li>Cheese/honey</li>
+              <li>Anything with butter. I'll put three recipes below</li>
+              <li>
+                <a href="#" target="_blank" rel="noreferrer" className="link">
+                  Dead Link
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noreferrer" className="link">
+                  Dead Link
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noreferrer" className="link">
+                  Dead Link
+                </a>
+              </li>
             </ul>
           </div>
         </Article>
