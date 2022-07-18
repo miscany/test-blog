@@ -99,7 +99,7 @@ const index = () => {
               here. It provides the basic introduction to the diet. It clarifies
               the theory behind raw meat, bacteria, and viruses.
             </p>
-            <a
+            <a rel = 'noreferrer'
               target="_blank"
               href="https://www.youtube.com/watch?v=ZJbgJmXIxAo&list=PLA4-m0Jyxx3mHBv5fxOwmyWYton1z_4qk"
               className="link"
@@ -119,7 +119,7 @@ const index = () => {
               about specific health conditions and how to reverse them with diet
               alone and specific formulas.
             </p>
-            <a
+            <a rel = 'noreferrer'
               target="_blank"
               href="https://www.youtube.com/channel/UCdHSzt83x7LjGcdNTJu2LSA/videos"
               className="link"
@@ -151,7 +151,7 @@ const index = () => {
             <h5 className="mar-one">Here Are Some Online Tools For The US</h5>
             <ul>
               <li>
-                <a
+                <a rel = 'noreferrer' 
                   target="_blank"
                   href="https://www.realmilk.com/raw-milk-finder/"
                   className="link"
@@ -160,10 +160,10 @@ const index = () => {
                 </a>
               </li>
               <li>
-                <a target="_blank" href="" className="link"></a>
+                <a  rel = 'noreferrer' target="_blank" href="" className="link"></a>
               </li>
               <li>
-                <a target="_blank" href="" className="link"></a>
+                <a  rel = 'noreferrer' target="_blank" href="" className="link"></a>
               </li>
             </ul>
           </div>
@@ -176,7 +176,7 @@ const index = () => {
             <p>
               I would personally suggest just diving right into your first raw
               meal. Here is a good steak tartare recipe{" "}
-              <a href="#" className="link">
+              <a  rel = 'noreferrer' href="#" className="link">
                 Dead Link
               </a>
               .
@@ -187,19 +187,19 @@ const index = () => {
             <ul className="mar-one">
               <li>
                 Milkshakes (raw milk, eggs, honey, fruit (optional)){" "}
-                <a href="#" className="link">
+                <a rel = 'noreferrer' href="#" className="link">
                   Dead Link
                 </a>
               </li>
               <li>
                 Fresh red meat (feel free to put this sauce on it){" "}
-                <a href="#" className="link">
+                <a rel = 'noreferrer'  href="#" className="link">
                   Dead Link
                 </a>
               </li>
               <li>
                 Raw Fish (try this recipe){" "}
-                <a href="#" className="link">
+                <a rel = 'noreferrer' href="#" className="link">
                   Dead Link
                 </a>
               </li>
@@ -207,7 +207,7 @@ const index = () => {
               <li>Raw Dairy (raw cheese, butter</li>
               <li>
                 Ice Cream (try this recipe){" "}
-                <a href="#" className="link">
+                <a rel = 'noreferrer' href="#" className="link">
                   Dead Link
                 </a>
               </li>
@@ -216,7 +216,7 @@ const index = () => {
               Some advanced foods you may not be ready for...
             </h5>
             <ul>
-              <li></li>
+              <li>Rotten meat (liver is best, but may cause detox) <a rel = 'noreferrer' target = '_blank' href="" className="link"></a></li>
             </ul>
           </div>
         </Article>
