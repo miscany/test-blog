@@ -40,7 +40,7 @@ const index = () => {
       index: 4,
       image: "/introduction/macronutrients.jpg",
       paragraphs: [
-        "By eating proteins, and fats in their raw state, you can preserve the nutrients. By eating a diet of 15-20% protein, 75-80%fat, an 5% carbohydrates you will reduce the production of advanced glycation end products. The body can handle 8% carbohydates without forming advanced glycation end products.",
+        "By eating proteins, and fats in their raw state, you can preserve the nutrients. By eating a diet of 15-20% protein, 75-80%fat, an 5% carbohydrates you will reduce the production of advanced glycation end products. The body can handle 12% carbohydates without forming advanced glycation end products.",
         "Raw protein from meats to build the body, raw fats to detox the poisons and to use as energy, and sugars from fruit/honey/milk to help use the fat for fuel, aid in detox and help digest the proteins.",
       ],
     },
