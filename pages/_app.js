@@ -1,7 +1,10 @@
 import "../styles/globals.scss";
 import Layout from "../components/Layout";
+
 import { NextSeo } from "next-seo";
+import { useState, useEffect } from "react";
 import { usePanelbear } from "@panelbear/panelbear-nextjs";
+
 function MyApp({ Component, pageProps }) {
   const SEO = {
     title: "Primal Enjoyer",
@@ -37,6 +40,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <NextSeo {...SEO} />
+
       <Layout>
         <Component {...pageProps} />
       </Layout>
