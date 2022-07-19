@@ -170,7 +170,8 @@ const SearchPage = ({ articlesFetch, superTags }) => {
   const [articles, setArticles] = useState(articlesFetch);
   const [filterArticles, setFilterArticles] = React.useState(articlesFetch);
   const [callFilter, setCallFilter] = React.useState([]);
-  const [articleCount, setArticleCount] = React.useState(100);
+  const [renderCount, setRenderCount] = React.useState(100);
+  const [renderArticles, setRenderArticles] = React.useState([]);
   const [alphaTags, setAlphaTags] = React.useState(
     superTags.sort(function (a, b) {
       var textA = a.text.toUpperCase();
@@ -186,7 +187,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
   };
   const articlesLength = filterArticles.length;
 
-  //Step #5: Filters fetched articles based on tags, runs useEffect setCallFilter at end
+  //#Step 5: Filters fetched articles based on tags, runs useEffect setCallFilter at end, also useEffect on filter articles is called to set renderArticles
   function updateArticles() {
     setFilterArticles((prevArticles) => {
       const articles = articlesFetch.filter((article) => {
@@ -254,7 +255,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
       return [...tags];
     });
   }
-  // Step #7 (Tags): Filters applicable tags based on the tags the articles contain [FINAL STEP]
+  // #Step 7 (Tags): Filters applicable tags based on the tags the articles contain [FINAL STEP]
   function updateTags() {
     let tags = [];
 
@@ -306,23 +307,23 @@ const SearchPage = ({ articlesFetch, superTags }) => {
       return returnTags;
     });
   }
-  // Step #6 (Tags): Updates tags after articles have been filtered, calls updateTags
+  // #Step 6 (Tags): Updates tags after articles have been filtered, calls updateTags
   useEffect(() => {
     updateTags();
   }, [callFilter]);
 
-  // Step 3 (Tags): Adds tag to search tags
+  // #Step 3 (Tags): Adds tag to search tags
   function pushSearchTag(tag) {
     setSearchTags((prevTags) => {
       return [...prevTags, tag];
     });
   }
-  // Step #4 (Tags): Calls updateArticles
+  // #Step 4 (Tags): Calls updateArticles
   useEffect(() => {
     updateArticles();
   }, [searchTags]);
 
-  // Step 2 (Tags): Removes tag from tags, and filterTags based on id, pushes to search tags
+  // #Step 2 (Tags): Removes tag from tags, and filterTags based on id, pushes to search tags
   function removeTag(id) {
     const item = tags.find((tag) => {
       return tag.id === id;
@@ -341,6 +342,19 @@ const SearchPage = ({ articlesFetch, superTags }) => {
       return [...tags];
     });
   }
+
+  useEffect(() => {
+    let renderArticleElems = [];
+    if (articlesLength >= 100) {
+      for (let i = 0; i < renderCount; i++) {
+        renderArticleElems.push(filterArticles[i]);
+      }
+    } else {
+      renderArticleElems = [...filterArticles];
+    }
+
+    setRenderArticles(renderArticleElems);
+  }, [filterArticles]);
   // Set a delay on tag renders until they stop typing for 500ms
   //#Step 2 (Searching): Called after text is input
   React.useEffect(() => {
@@ -403,7 +417,9 @@ const SearchPage = ({ articlesFetch, superTags }) => {
         </PlaceToggle>
         <Header>
           <Title colors={COLORS}>
-            <h2 className="light green">{articlesLength}</h2>
+            <h2 className="light green">
+              {(articlesLength <= renderCount && articlesLength) || renderCount}
+            </h2>
           </Title>
         </Header>
         <SectionSplit style={{ flexDirection: style }}>
@@ -442,7 +458,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
             </SectionHalf>
           </TopSection>
           <BottomSection>
-            <SearchResults articles={filterArticles} />
+            <SearchResults articles={renderArticles} />
           </BottomSection>
         </SectionSplit>
       </div>
