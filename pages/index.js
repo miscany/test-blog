@@ -171,6 +171,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
   const [filterArticles, setFilterArticles] = React.useState(articlesFetch);
   const [callFilter, setCallFilter] = React.useState([]);
   const [renderCount, setRenderCount] = React.useState(100);
+  const [firstRender, setFirstRender] = React.useState(true);
   const [renderArticles, setRenderArticles] = React.useState([]);
   const [alphaTags, setAlphaTags] = React.useState(
     superTags.sort(function (a, b) {
@@ -179,6 +180,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
       return textA < textB ? -1 : textA > textB ? 1 : 0;
     })
   );
+
   const [view, setView] = React.useState(false);
   const changeView = () => {
     setView((prevView) => {
@@ -222,6 +224,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
   function generateColor() {
     return tagColors[Math.floor(Math.random() * tagColors.length)];
   }
+
   //#Step 3 (Searching): Called after text updates to filter tags
   function findClosestTag() {
     setFilterTags((prevTags) => {
@@ -357,14 +360,20 @@ const SearchPage = ({ articlesFetch, superTags }) => {
   }, [filterArticles]);
   // Set a delay on tag renders until they stop typing for 500ms
   //#Step 2 (Searching): Called after text is input
+
   React.useEffect(() => {
-    const delayType = setTimeout(() => {
-      findClosestTag();
-    }, 500);
-    return () => clearTimeout(delayType);
+    if (!firstRender) {
+      const delayType = setTimeout(() => {
+        findClosestTag();
+      }, 500);
+      return () => clearTimeout(delayType);
+    } else {
+      setFirstRender(false);
+    }
   }, [text]);
 
-  /* React.useEffect(() => {
+  /*
+  React.useEffect(() => {
     setTags((prevTags) => {
       return alphaTags.map((tag, index) => {
         let newTag = {
