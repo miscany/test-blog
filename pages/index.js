@@ -170,6 +170,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
   const [articles, setArticles] = useState(articlesFetch);
   const [filterArticles, setFilterArticles] = React.useState(articlesFetch);
   const [callFilter, setCallFilter] = React.useState([]);
+  const [articleCount, setArticleCount] = React.useState(100);
   const [alphaTags, setAlphaTags] = React.useState(
     superTags.sort(function (a, b) {
       var textA = a.text.toUpperCase();
@@ -184,6 +185,8 @@ const SearchPage = ({ articlesFetch, superTags }) => {
     });
   };
   const articlesLength = filterArticles.length;
+
+  //Step #5: Filters fetched articles based on tags, runs useEffect setCallFilter at end
   function updateArticles() {
     setFilterArticles((prevArticles) => {
       const articles = articlesFetch.filter((article) => {
@@ -204,7 +207,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
     title: "Raw Primal Search Bar",
     description: "Search for any topic discussed by Aajonus Vonderplantiz",
   };
-
+  // Step 1 (Tags): Removes clicked tag and clears text input
   function submitSearch(e) {
     e.preventDefault();
     let id = filterTags[0].id;
@@ -218,6 +221,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
   function generateColor() {
     return tagColors[Math.floor(Math.random() * tagColors.length)];
   }
+  //#Step 3 (Searching): Called after text updates to filter tags
   function findClosestTag() {
     setFilterTags((prevTags) => {
       return tags.filter((tag) => {
@@ -225,7 +229,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
       });
     });
   }
-
+  //#Step 1 (Searching): Updates text, which calls useEffect
   function updateText(e) {
     let val = e.currentTarget.value;
     setText((prevText) => {
@@ -233,11 +237,6 @@ const SearchPage = ({ articlesFetch, superTags }) => {
     });
   }
 
-  /*function pushSearchTag(tag) {
-    setTags((prevTags) => {
-      return [...prevTags, tag];
-    });
-  } NO IDEA */
   function removeSearchTag(id) {
     const item = searchTags.find((tag) => {
       return tag.id === id;
@@ -255,7 +254,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
       return [...tags];
     });
   }
-
+  // Step #7 (Tags): Filters applicable tags based on the tags the articles contain [FINAL STEP]
   function updateTags() {
     let tags = [];
 
@@ -307,18 +306,23 @@ const SearchPage = ({ articlesFetch, superTags }) => {
       return returnTags;
     });
   }
+  // Step #6 (Tags): Updates tags after articles have been filtered, calls updateTags
   useEffect(() => {
     updateTags();
   }, [callFilter]);
+
+  // Step 3 (Tags): Adds tag to search tags
   function pushSearchTag(tag) {
     setSearchTags((prevTags) => {
       return [...prevTags, tag];
     });
   }
+  // Step #4 (Tags): Calls updateArticles
   useEffect(() => {
     updateArticles();
   }, [searchTags]);
 
+  // Step 2 (Tags): Removes tag from tags, and filterTags based on id, pushes to search tags
   function removeTag(id) {
     const item = tags.find((tag) => {
       return tag.id === id;
@@ -337,11 +341,15 @@ const SearchPage = ({ articlesFetch, superTags }) => {
       return [...tags];
     });
   }
+  // Set a delay on tag renders until they stop typing for 500ms
+  //#Step 2 (Searching): Called after text is input
   React.useEffect(() => {
-    findClosestTag();
+    const delayType = setTimeout(() => {
+      findClosestTag();
+    }, 500);
+    return () => clearTimeout(delayType);
   }, [text]);
 
-  // #1 Page loads and sets all the tags into state objects
   /* React.useEffect(() => {
     setTags((prevTags) => {
       return alphaTags.map((tag, index) => {
