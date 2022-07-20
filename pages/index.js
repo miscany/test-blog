@@ -3,6 +3,7 @@ import { gql, GraphQLClient } from "graphql-request";
 import styled from "styled-components";
 import COLORS, { tagColors } from "../Data/colors";
 import SearchBar from "../components/search/SearchBar";
+import SuperSearchBar from "../components/search/SuperSearchBar";
 import { NextSeo } from "next-seo";
 import TAGS from "../Data/tags";
 import TagBox from "../components/search/TagBox";
@@ -42,6 +43,9 @@ const SearchCont = styled.div`
 const SectionSplit = styled.div`
   display: flex;
   gap: 3rem;
+  @media only screen and (max-width: 600px) {
+    gap: 0;
+  }
 `;
 const TopSection = styled.div`
   flex: 1;
@@ -73,6 +77,8 @@ const BottomSection = styled.div`
   max-width: 900px;
   margin: 0 auto;
   flex: 1;
+  display: flex;
+  flex-shrink: 0;
 `;
 
 const SubTitle = styled.div`
@@ -434,6 +440,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
         <SectionSplit style={{ flexDirection: style }}>
           <TopSection>
             <SectionHalf>
+              {/*
               <SubTitle className="search" colors={COLORS}>
                 <div className="cont">
                   <SearchIcon className="icon-grey" />
@@ -450,7 +457,28 @@ const SearchPage = ({ articlesFetch, superTags }) => {
                 submitSearch={submitSearch}
                 colors={COLORS}
               />
+              */}
+              <SubTitle className="search" colors={COLORS}>
+                <div className="cont">
+                  <SearchIcon className="icon-grey" />
+                  <h3>Search</h3>
+                </div>
+              </SubTitle>
+
+              <SuperSearchBar
+                text={text}
+                updateText={updateText}
+                removeSearchTag={removeSearchTag}
+                pushTag={pushSearchTag}
+                tags={searchTags}
+                submitSearch={submitSearch}
+                colors={COLORS}
+                pushSearchTag={pushSearchTag}
+                removeTag={removeTag}
+                filterTags={filterTags}
+              />
             </SectionHalf>
+            {/*
             <SectionHalf>
               <SubTitle className="tags" colors={COLORS}>
                 <div className="cont">
@@ -465,6 +493,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
                 colors={COLORS}
               />
             </SectionHalf>
+            */}
           </TopSection>
           <BottomSection>
             <SearchResults articles={renderArticles} />
