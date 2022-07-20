@@ -33,16 +33,14 @@ const SectionOne = styled.div`
 const Introduction = (props) => {
   return (
     <Content>
-      
       <SectionOne className="section">
-       
         <h1>Welcome Primal Enjoyer</h1>
         <p className="contrast">
           {" "}
-          Primal diet officially created by Aajonus Vonderplanitz in 1997 after
-          his release of the book, “We Want To Live”. He had already been
-          experimenting with raw meat since 1976 and had cured 100s of patients
-          at this point.{" "}
+          Primal diet officially created by Aajonus Vonderplanitz. Aajonus ate
+          his first bite of raw meat in September of 1976. He had released his
+          first book, "We Want To Live" in 1997, and had been working with 100s
+          of patients at this point.
         </p>
         <SubmitBtn text="Primal Search" link="/" className="button-spec" />
         <div className="hero">
@@ -52,7 +50,7 @@ const Introduction = (props) => {
 
       <SectionTwo />
       <SectionThree />
- 
+
       <SectionFour />
     </Content>
   );

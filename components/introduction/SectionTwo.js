@@ -45,7 +45,7 @@ const SectionTwo = () => {
             <h2>What Is The Primal Diet?</h2>
             <p className="contrast">
               It is a diet completely consisting of raw meat (beef, chicken,
-              pork), raw dairy, eggs and vegetable juices.{" "}
+              pork, fish, lamb; any animal you can imagine), raw dairy, eggs and vegetable juices.{" "}
             </p>
           </div>
         </div>

@@ -12,17 +12,20 @@ import {
 import COLORS from "../Data/colors";
 
 const NavCont = styled.nav`
-  display: flex;
+  position: fixed;
+  width: 100%;
+
   height: 70px;
   padding: 0 5%;
+  .active-dropdown {
+    top: 70px;
+  }
 
-  justify-content: space-between;
-  align-items: center;
   border-bottom: 1px solid black;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
   margin-bottom: 2rem;
   background-color: ${(props) => props.colors.grey};
-
+  z-index: 5;
   .white {
     background-color: #fff;
     border-top: 1px solid black;
@@ -32,6 +35,12 @@ const NavCont = styled.nav`
       color: #fff;
       background-color: ${(props) => props.colors.darkBlue};
     }
+  }
+  .nav-flex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
   }
   h3 {
     text-shadow: 2px 2px 2px rgba(1, 1, 1, 0.25);
@@ -65,6 +74,7 @@ const NavRight = styled.div`
     }
   }
 `;
+
 const Title = styled.h2`
   text-shadow: 3px 3px 5px rgba(1, 1, 1, 0.5);
   cursor: pointer;
@@ -78,14 +88,16 @@ const MobileNav = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: ${(props) => props.colors.grey};
+  z-index: 101;
   .nav-hamburger {
     &:hover {
       cursor: pointer;
     }
   }
-  .active-dropdown {
-    top: 70px;
-  }
+
   .lrg-icon {
     transition: transform 0.25s ease;
     &:hover {
@@ -96,7 +108,7 @@ const MobileNav = styled.div`
 `;
 
 const NavDropdown = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 1;
   top: -100%;
   height: 100%;
@@ -151,28 +163,30 @@ const Navbar = () => {
   }
   return (
     <NavCont colors={COLORS} name="top">
-      <div className="desktop">
-        <Link passHref href="/introduction" clasName="link">
-          <Title>Primal Enjoyer</Title>
-        </Link>
-      </div>
-      <NavRight className="tablet">
-        <Link passHref href="/" className="link">
-          <h3 className="white">Search</h3>
-        </Link>
-        <Link passHref href="/introduction" className="link">
-          <h3>Home</h3>
-        </Link>
-        <Link passHref href="/account">
-          <h3>Account</h3>
-        </Link>
-
-        <div className="mobile-sm">
-          <Link passHref href="/contact" className="link">
-            <h3>Contact</h3>
+      <div className="nav-flex-header tablet">
+        <div className="desktop">
+          <Link passHref href="/introduction" clasName="link">
+            <Title>Primal Enjoyer</Title>
           </Link>
         </div>
-      </NavRight>
+        <NavRight className="tablet">
+          <Link passHref href="/" className="link">
+            <h3 className="white">Search</h3>
+          </Link>
+          <Link passHref href="/introduction" className="link">
+            <h3>Home</h3>
+          </Link>
+          <Link passHref href="/account">
+            <h3>Account</h3>
+          </Link>
+
+          <div className="mobile-sm">
+            <Link passHref href="/contact" className="link">
+              <h3>Contact</h3>
+            </Link>
+          </div>
+        </NavRight>
+      </div>
 
       <MobileNav colors={COLORS} className="mobile">
         {(!active && (
@@ -181,79 +195,74 @@ const Navbar = () => {
             className="lrg-icon nav-hamburger"
           />
         )) || <div onClick={ToggleDropdown} className="arrow-up"></div>}
-
-        <NavDropdown
-          className={active ? "active-dropdown" : ""}
-          colors={COLORS}
-        >
-          <div className="nav-line">
-            <Link href="/" passHref>
-              <a
-                onClick={ToggleDropdown}
-                title="Search"
-                rel="noopener noreferrer"
-              >
-                <div className="nav-flex">
-                  <SearchIcon className=" nav-icon" />
-                  <h2>Search</h2>
-                </div>
-              </a>
-            </Link>
-            <div className="line"></div>
-          </div>
-          {/* End of nav line*/}
-
-          <div className="nav-line">
-            <Link href="/introduction" passHref>
-              <a
-                onClick={ToggleDropdown}
-                title="Home"
-                rel="noopener noreferrer"
-              >
-                <div className="nav-flex">
-                  <HomeIcon className="nav-icon" />
-                  <h2>Home</h2>
-                </div>
-              </a>
-            </Link>
-            <div className="line"></div>
-          </div>
-          {/* End of nav line*/}
-
-          <div className="nav-line">
-            <Link href="/account" passHref>
-              <a
-                onClick={ToggleDropdown}
-                title="Account"
-                rel="noopener noreferrer"
-              >
-                <div className="nav-flex">
-                  <UserIcon className="nav-icon" />
-                  <h2>Account</h2>
-                </div>
-              </a>
-            </Link>
-            <div className="line"></div>
-          </div>
-          {/* End of nav line*/}
-
-          <div className="nav-line">
-            <Link href="/contact" passHref>
-              <a
-                onClick={ToggleDropdown}
-                title="Contact"
-                rel="noopener noreferrer"
-              >
-                <div className="nav-flex">
-                  <MailIcon className="nav-icon" />
-                  <h2>Contact</h2>
-                </div>
-              </a>
-            </Link>
-          </div>
-          {/* End of nav line*/}
-        </NavDropdown>
       </MobileNav>
+      <NavDropdown
+        className={active ? "active-dropdown mobile" : "mobile"}
+        colors={COLORS}
+      >
+        <div className="nav-line">
+          <Link href="/" passHref>
+            <a
+              onClick={ToggleDropdown}
+              title="Search"
+              rel="noopener noreferrer"
+            >
+              <div className="nav-flex">
+                <SearchIcon className=" nav-icon" />
+                <h2>Search</h2>
+              </div>
+            </a>
+          </Link>
+          <div className="line"></div>
+        </div>
+        {/* End of nav line*/}
+
+        <div className="nav-line">
+          <Link href="/introduction" passHref>
+            <a onClick={ToggleDropdown} title="Home" rel="noopener noreferrer">
+              <div className="nav-flex">
+                <HomeIcon className="nav-icon" />
+                <h2>Home</h2>
+              </div>
+            </a>
+          </Link>
+          <div className="line"></div>
+        </div>
+        {/* End of nav line*/}
+
+        <div className="nav-line">
+          <Link href="/account" passHref>
+            <a
+              onClick={ToggleDropdown}
+              title="Account"
+              rel="noopener noreferrer"
+            >
+              <div className="nav-flex">
+                <UserIcon className="nav-icon" />
+                <h2>Account</h2>
+              </div>
+            </a>
+          </Link>
+          <div className="line"></div>
+        </div>
+        {/* End of nav line*/}
+
+        <div className="nav-line">
+          <Link href="/contact" passHref>
+            <a
+              onClick={ToggleDropdown}
+              title="Contact"
+              rel="noopener noreferrer"
+            >
+              <div className="nav-flex">
+                <MailIcon className="nav-icon" />
+                <h2>Contact</h2>
+              </div>
+            </a>
+          </Link>
+        </div>
+        {/* End of nav line*/}
+      </NavDropdown>
     </NavCont>
   );
 };
