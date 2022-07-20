@@ -458,8 +458,8 @@ const SearchPage = ({ articlesFetch, superTags }) => {
                 colors={COLORS}
               />
               */}
-              <SubTitle className="search" colors={COLORS}>
-                <div className="cont">
+              <SubTitle className="search tablet" colors={COLORS}>
+                <div className="cont ">
                   <SearchIcon className="icon-grey" />
                   <h3>Search</h3>
                 </div>
