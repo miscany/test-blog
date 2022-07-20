@@ -14,7 +14,8 @@ import COLORS from "../Data/colors";
 const NavCont = styled.nav`
   display: flex;
   height: 70px;
-  padding: 0;
+  padding: 0 5%;
+
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid black;

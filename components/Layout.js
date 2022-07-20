@@ -10,6 +10,7 @@ const Center = styled.div`
   margin: 0 0;
   @media only screen and (max-width: 1199px) {
     margin: 0 0;
+    overflow-x: hidden;
   }
 `;
 
@@ -17,11 +18,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <DefaultSeo {...SEO} />
-     
-        <Navbar />
-        <Center>{children}</Center>
-        <Footer />
-      
+
+      <Navbar />
+      <Center>{children}</Center>
+      <Footer />
     </>
   );
 };
