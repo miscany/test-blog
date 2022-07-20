@@ -11,15 +11,18 @@ const TagBoxElem = styled.div`
   overflow: hidden;
   overflow-y: scroll;
   position: relative;
-  .form-dropdown {
-    position: relative;
-    padding: 10px;
-  }
 `;
 const TagsCont = styled.div`
   margin: 10px;
   overflow: auto;
   position: relative;
+`;
+
+const FormDropdown = styled.form`
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  padding: 0.5rem;
 `;
 
 const InputLine = styled.input`
@@ -29,6 +32,7 @@ const InputLine = styled.input`
   font-weight: bold;
   border-radius: 0.5rem !important;
   font-size: 1.25rem;
+  margin-left: auto;
   &:focus {
     border-radius: 0.5rem 0.5rem 0 0 !important;
   }
@@ -45,6 +49,7 @@ const Dropdown = styled.div`
   overflow-y: scroll;
   cursor: pointer;
   overflow-x: hidden;
+  top: 67.5px;
   .item {
     padding-left: 4px;
     background-color: #fff;
@@ -117,7 +122,7 @@ const SuperSearchTagBox = (props) => {
       <TagBoxElem colors={props.colors}>
         <TagsCont>{tags}</TagsCont>
       </TagBoxElem>
-      <form
+      <FormDropdown
         className="form-dropdown"
         onSubmit={props.submitSearch}
         ref={dropdownEl}
@@ -130,7 +135,7 @@ const SuperSearchTagBox = (props) => {
           placeholder="Search..."
         />
         {showDropdown && <Dropdown colors={COLORS}>{lines}</Dropdown>}
-      </form>
+      </FormDropdown>
     </>
   );
 };
