@@ -2,7 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import { useState } from "react";
-import { MenuIcon } from "@heroicons/react/solid";
+import {
+  MenuIcon,
+  SearchIcon,
+  HomeIcon,
+  UserIcon,
+  MailIcon,
+} from "@heroicons/react/solid";
 import COLORS from "../Data/colors";
 
 const NavCont = styled.nav`
@@ -14,6 +20,7 @@ const NavCont = styled.nav`
   border-bottom: 1px solid black;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
   margin-bottom: 2rem;
+  background-color: ${(props) => props.colors.grey};
 
   .white {
     background-color: #fff;
@@ -75,6 +82,9 @@ const MobileNav = styled.div`
       cursor: pointer;
     }
   }
+  .active-dropdown {
+    top: 70px;
+  }
   .lrg-icon {
     transition: transform 0.25s ease;
     &:hover {
@@ -93,8 +103,43 @@ const NavDropdown = styled.div`
   left: 0px;
   transition: top 0.5s ease;
   background-color: ${(props) => props.colors.darkBlue};
-  .active-dropdown {
-    top: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 64px;
+  gap: 32px;
+  .nav-line {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-icon {
+      color: ${(props) => props.colors.veryLightBlue};
+      width: 40px;
+      height: 40px;
+    }
+    &:hover {
+      h2 {
+        color: ${(props) => props.colors.green};
+      }
+      .nav-icon {
+        color: ${(props) => props.colors.green};
+      }
+    }
+    h2 {
+      color: ${(props) => props.colors.veryLightBlue};
+    }
+    .line {
+      width: 50%;
+      height: 4px;
+      background-color: ${(props) => props.colors.veryLightBlue};
+    }
   }
 `;
 const Navbar = () => {
@@ -127,6 +172,7 @@ const Navbar = () => {
           </Link>
         </div>
       </NavRight>
+
       <MobileNav colors={COLORS} className="mobile">
         {(!active && (
           <MenuIcon
@@ -134,8 +180,77 @@ const Navbar = () => {
             className="lrg-icon nav-hamburger"
           />
         )) || <div onClick={ToggleDropdown} className="arrow-up"></div>}
-        <NavDropdown className="active-dropdown" colors={COLORS}>
-          hello
+
+        <NavDropdown
+          className={active ? "active-dropdown" : ""}
+          colors={COLORS}
+        >
+          <div className="nav-line">
+            <Link href="/" passHref>
+              <a
+                onClick={ToggleDropdown}
+                title="Search"
+                rel="noopener noreferrer"
+              >
+                <div className="nav-flex">
+                  <SearchIcon className=" nav-icon" />
+                  <h2>Search</h2>
+                </div>
+              </a>
+            </Link>
+            <div className="line"></div>
+          </div>
+          {/* End of nav line*/}
+
+          <div className="nav-line">
+            <Link href="/introduction" passHref>
+              <a
+                onClick={ToggleDropdown}
+                title="Home"
+                rel="noopener noreferrer"
+              >
+                <div className="nav-flex">
+                  <HomeIcon className="nav-icon" />
+                  <h2>Home</h2>
+                </div>
+              </a>
+            </Link>
+            <div className="line"></div>
+          </div>
+          {/* End of nav line*/}
+
+          <div className="nav-line">
+            <Link href="/account" passHref>
+              <a
+                onClick={ToggleDropdown}
+                title="Account"
+                rel="noopener noreferrer"
+              >
+                <div className="nav-flex">
+                  <UserIcon className="nav-icon" />
+                  <h2>Account</h2>
+                </div>
+              </a>
+            </Link>
+            <div className="line"></div>
+          </div>
+          {/* End of nav line*/}
+
+          <div className="nav-line">
+            <Link href="/contact" passHref>
+              <a
+                onClick={ToggleDropdown}
+                title="Contact"
+                rel="noopener noreferrer"
+              >
+                <div className="nav-flex">
+                  <MailIcon className="nav-icon" />
+                  <h2>Contact</h2>
+                </div>
+              </a>
+            </Link>
+          </div>
+          {/* End of nav line*/}
         </NavDropdown>
       </MobileNav>
     </NavCont>
