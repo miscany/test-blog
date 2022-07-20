@@ -62,7 +62,7 @@ const Dropdown = styled.div`
     width: 180px;
   }
   @media only screen and (max-width: 440px) {
-    width: 100%;
+    width: calc(100% - 18px);
   }
 `;
 const SuperSearchTagBox = (props) => {
