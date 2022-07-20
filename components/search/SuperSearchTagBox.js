@@ -66,7 +66,12 @@ const SuperSearchTagBox = (props) => {
   console.log(props.filterTags);
   const lines = props.filterTags.map((tag) => {
     return (
-      <div onClick={() => props.removeTag(tag.id)} id={tag.id} className="item">
+      <div
+        key={id}
+        onClick={() => props.removeTag(tag.id)}
+        id={tag.id}
+        className="item"
+      >
         <p>{tag.title}</p>
       </div>
     );
