@@ -49,7 +49,7 @@ const Dropdown = styled.div`
   overflow-y: scroll;
   cursor: pointer;
   overflow-x: hidden;
-  top: 67.5px;
+  top: 57.5px;
   .item {
     padding-left: 4px;
     background-color: #fff;

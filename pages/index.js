@@ -76,8 +76,6 @@ const BottomSection = styled.div`
   max-width: 900px;
   margin: 0 auto;
   flex: 1;
-  display: flex;
-  flex-shrink: 0;
 `;
 
 const SubTitle = styled.div`
