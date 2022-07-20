@@ -37,7 +37,7 @@ const InputLine = styled.input`
     border-radius: 0.5rem 0.5rem 0 0 !important;
   }
   @media only screen and (max-width: 440px) {
-    width: 144px;
+    width: 100%;
   }
 `;
 
@@ -62,7 +62,7 @@ const Dropdown = styled.div`
     width: 180px;
   }
   @media only screen and (max-width: 440px) {
-    width: 144px;
+    width: 100%;
   }
 `;
 const SuperSearchTagBox = (props) => {
