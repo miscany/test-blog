@@ -5,6 +5,7 @@ import COLORS from "../Data/colors";
 import emailjs, { init } from "@emailjs/browser";
 
 const Cont = styled.div`
+  margin-top: 6rem;
   display: flex;
   background-color: #fff;
   @media only screen and (max-width: 960px) {

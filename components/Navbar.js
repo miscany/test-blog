@@ -14,7 +14,7 @@ import COLORS from "../Data/colors";
 const NavCont = styled.nav`
   position: fixed;
   width: 100%;
-
+  top: 0;
   height: 70px;
   padding: 0 5%;
   .active-dropdown {

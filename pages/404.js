@@ -4,6 +4,7 @@ import COLORS from "../Data/colors";
 
 const UnknownPage = styled.div`
   overflow: hidden;
+  margin-top: 6rem;
   h1 {
     padding: 1rem 2rem;
 
