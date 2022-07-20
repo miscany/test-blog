@@ -52,7 +52,6 @@ const TopSection = styled.div`
   gap: 2rem;
   max-width: 400px;
   margin: 0 auto;
-  height: 800px;
 
   @media only screen and (max-width: 365px) {
     flex-direction: column;
