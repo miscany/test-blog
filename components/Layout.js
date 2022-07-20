@@ -7,19 +7,25 @@ import SEO from "../next.config";
 
 const Center = styled.div`
   width: 100%;
-
+  margin: 0 0;
   @media only screen and (max-width: 1199px) {
     margin: 0 0;
-    width: 100%;
+  }
+`;
+const FixWidth = styled.div`
+  @media only screen and (max-width: 400px) {
+    width: 200%;
   }
 `;
 const Layout = ({ children }) => {
   return (
     <>
       <DefaultSeo {...SEO} />
-      <Navbar />
-      <Center>{children}</Center>
-      <Footer />
+      <FixWidth>
+        <Navbar />
+        <Center>{children}</Center>
+        <Footer />
+      </FixWidth>
     </>
   );
 };
