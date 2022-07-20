@@ -18,7 +18,7 @@ const NavCont = styled.nav`
   height: 70px;
   padding: 0 5%;
   .active-dropdown {
-    top: 70px;
+    transform: translateY(1px);
   }
 
   border-bottom: 1px solid black;
@@ -113,11 +113,11 @@ const MobileNav = styled.div`
 const NavDropdown = styled.div`
   position: fixed;
   z-index: 1;
-  top: -100%;
+  transform: translateY(-100%);
   height: calc(100vh - 70px);
   width: 100%;
   left: 0px;
-  transition: top 0.5s ease;
+  transition: transform 0.5s ease;
   background-color: ${(props) => props.colors.darkBlue};
   display: flex;
   flex-direction: column;
