@@ -87,12 +87,15 @@ const MobileNav = styled.div`
   padding: 16px;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+
   width: 100%;
   height: 100%;
   position: relative;
   background-color: ${(props) => props.colors.grey};
   z-index: 101;
   .nav-hamburger {
+    border: 2px solid ${(props) => props.colors.darkBlue};
     &:hover {
       cursor: pointer;
     }
