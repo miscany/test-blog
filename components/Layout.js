@@ -12,20 +12,16 @@ const Center = styled.div`
     margin: 0 0;
   }
 `;
-const FixWidth = styled.div`
-  @media only screen and (max-width: 400px) {
-    width: 200%;
-  }
-`;
+
 const Layout = ({ children }) => {
   return (
     <>
       <DefaultSeo {...SEO} />
-      <FixWidth>
+     
         <Navbar />
         <Center>{children}</Center>
         <Footer />
-      </FixWidth>
+      
     </>
   );
 };
