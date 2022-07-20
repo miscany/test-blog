@@ -114,7 +114,7 @@ const NavDropdown = styled.div`
   position: fixed;
   z-index: 1;
   top: -100%;
-  height: 100%;
+  height: calc(100vh - 70px);
   width: 100%;
   left: 0px;
   transition: top 0.5s ease;
@@ -123,8 +123,9 @@ const NavDropdown = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   padding: 64px;
-  row-gap: 32px;
+
   .nav-line {
+    flex: 1;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -137,7 +138,7 @@ const NavDropdown = styled.div`
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    row-gap: 32px;
+
     .nav-flex {
       display: flex;
       align-items: center;
