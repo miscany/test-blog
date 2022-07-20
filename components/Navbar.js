@@ -123,7 +123,7 @@ const NavDropdown = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   padding: 64px;
-  gap: 32px;
+  row-gap: 32px;
   .nav-line {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -137,11 +137,11 @@ const NavDropdown = styled.div`
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    gap: 32px;
+    row-gap: 32px;
     .nav-flex {
       display: flex;
       align-items: center;
-      gap: 8px;
+      column-gap: 8px;
     }
     .nav-icon {
       color: ${(props) => props.colors.veryLightBlue};
