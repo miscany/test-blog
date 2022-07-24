@@ -14,6 +14,14 @@ const ArticleElem = styled.div`
   padding: 8px;
   margin-bottom: 16px;
   overflow: hidden;
+  @media only screen and (max-width: 630px) {
+    width: 100%;
+  }
+  @media only screen and (max-width: 400px) {
+    h5 {
+      font-size: 18px;
+    }
+  }
   &:hover {
     h5,
     h6 {
