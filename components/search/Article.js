@@ -16,6 +16,14 @@ const ArticleElem = styled.div`
   overflow: hidden;
   @media only screen and (max-width: 630px) {
     width: 100%;
+    .lrg-icon {
+      width: 32px;
+      height: 32px;
+    }
+    .icon-cont {
+      width: 32px !important;
+      height: 32px !important;
+    }
   }
   @media only screen and (max-width: 400px) {
     h5 {
