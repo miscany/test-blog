@@ -97,7 +97,7 @@ const SectionHalf = styled.div`
 
 const BottomSection = styled.div`
   overflow-y: scroll;
-  height: 800px;
+  max-height: 800px;
   max-width: 900px;
   margin: 0 auto 6rem;
   flex: 1;

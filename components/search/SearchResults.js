@@ -6,7 +6,6 @@ const ResultsCont = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  max-height: 800px;
 `;
 
 const SearchResults = (props) => {

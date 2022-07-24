@@ -9,6 +9,7 @@ const ArticleElem = styled.div`
   display: flex;
   justify-content: space-between;
   width: 236px;
+
   height: 120px;
   align-items: center;
   padding: 8px;
@@ -52,6 +53,7 @@ const ArticleElem = styled.div`
     .lrg-icon {
       transition: color 0.25s ease;
     }
+    margin-left: 8px;
   }
 `;
 
