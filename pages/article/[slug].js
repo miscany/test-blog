@@ -85,6 +85,11 @@ const Grid = styled.div`
   }
 `;
 
+const Header = styled.div`
+  align-items: center;
+  display: flex;
+  margin-bottom: 3rem;
+`;
 const Tags = styled.div`
   grid-area: tags;
   box-shadow: 0px 5px 25px 3px rgba(0, 0, 0, 0.8);
@@ -255,7 +260,11 @@ const slug = ({ article, articles }) => {
       <NextSeo {...SEO} />
 
       <div className="container">
-        <h1 className="align-center">{article.title}</h1>
+        <Header>
+          <div className="title">
+            <h1 className="align-center">{article.title}</h1>
+          </div>
+        </Header>
         <Grid>
           <Tags colors={COLORS}>
             <div className="tag-title">

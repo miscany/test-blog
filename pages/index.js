@@ -8,7 +8,12 @@ import { NextSeo } from "next-seo";
 import TAGS from "../Data/tags";
 import TagBox from "../components/search/TagBox";
 import SearchResults from "../components/search/SearchResults";
-import { SearchIcon, TagIcon, BookOpenIcon } from "@heroicons/react/solid";
+import {
+  SearchIcon,
+  TagIcon,
+  BookOpenIcon,
+  PlusIcon,
+} from "@heroicons/react/solid";
 import Icon from "../components/Buttons/Icon";
 import Instructions from "../components/Instructions";
 import ChangeView from "../components/Buttons/ChangeView";
@@ -33,6 +38,26 @@ const Header = styled.div`
   }
   @media only screen and (max-width: 680px) {
     flex-direction: column;
+  }
+`;
+
+const PlusCont = styled.div`
+  width: 80px;
+  height: 80px;
+  border-radius: 128px;
+  background-color: ${(props) => props.colors.green};
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  margin: auto;
+  .icon-misc {
+    color: ${(props) => props.colors.darkBlue};
+  }
+  &:hover {
+    background-color: ${(props) => props.colors.darkBlue};
+    .icon-misc {
+      transition: color 0.25s ease;
+      color: ${(props) => props.colors.green};
+    }
   }
 `;
 const SearchCont = styled.div`
@@ -76,6 +101,9 @@ const BottomSection = styled.div`
   max-width: 900px;
   margin: 0 auto;
   flex: 1;
+  background-color: ${(props) => props.colors.veryLightBlue};
+  border: 1px solid ${(props) => props.colors.darkBlue};
+  padding: 32px 0;
 `;
 
 const SubTitle = styled.div`
@@ -191,6 +219,13 @@ const SearchPage = ({ articlesFetch, superTags }) => {
     });
   };
   const articlesLength = filterArticles.length;
+
+  function IncreaseRender() {
+    setRenderCount((prev) => {
+      return prev + 100;
+    });
+    updateArticles();
+  }
 
   //#Step 5: Filters fetched articles based on tags, runs useEffect setCallFilter at end, also useEffect on filter articles is called to set renderArticles
   function updateArticles() {
@@ -422,7 +457,6 @@ const SearchPage = ({ articlesFetch, superTags }) => {
             <h1>Aajonus Search</h1>
           </Title>
         </Header>
-        <Instructions />
 
         <PlaceToggle>
           <ChangeView condition={view} func={changeView} />
@@ -437,24 +471,6 @@ const SearchPage = ({ articlesFetch, superTags }) => {
         <SectionSplit style={{ flexDirection: style }}>
           <TopSection>
             <SectionHalf>
-              {/*
-              <SubTitle className="search" colors={COLORS}>
-                <div className="cont">
-                  <SearchIcon className="icon-grey" />
-                  <h3>Search</h3>
-                </div>
-              </SubTitle>
-
-              <SearchBar
-                text={text}
-                updateText={updateText}
-                removeSearchTag={removeSearchTag}
-                pushTag={pushSearchTag}
-                tags={searchTags}
-                submitSearch={submitSearch}
-                colors={COLORS}
-              />
-              */}
               <SubTitle className="search tablet" colors={COLORS}>
                 <div className="cont ">
                   <SearchIcon className="icon-grey" />
@@ -492,8 +508,13 @@ const SearchPage = ({ articlesFetch, superTags }) => {
             </SectionHalf>
             */}
           </TopSection>
-          <BottomSection>
+          <BottomSection colors={COLORS}>
             <SearchResults articles={renderArticles} />
+            {articlesLength >= 100 && (
+              <PlusCont onClick={IncreaseRender} colors={COLORS}>
+                <PlusIcon className="icon-misc" />
+              </PlusCont>
+            )}
           </BottomSection>
         </SectionSplit>
       </div>

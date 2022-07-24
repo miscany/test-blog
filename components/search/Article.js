@@ -1,54 +1,61 @@
 import styled from "styled-components";
 import Link from "next/link";
-const ArticleCont = styled.div`
-  box-shadow: 0 2px 5px 1px rgba(1, 1, 1, 0.5);
-  margin-bottom: 3rem;
+import COLORS from "../../Data/colors";
+import Image from "next//image";
+import { ArrowSmRightIcon } from "@heroicons/react/solid";
+const ArticleElem = styled.div`
+  background-color: #fff;
+  border: 1px solid ${(props) => props.colors.darkBlue};
   display: flex;
-  flex-direction: column;
-  width: 200px;
-  height: 200px;
-  cursor: pointer;
-  transition: box-shadow 0.5s ease, border 0.5s ease, transform 0.5s ease;
-  border: 1px solid transparent;
-  &:hover {
-    box-shadow: none;
-    border: 1px solid black;
-    transform: scale(0.95);
-  }
-  .image-cont {
-    height: 100px;
-  }
-  img {
-    width: 100%;
-  }
-`;
-const TextContent = styled.div`
-  background-color: #fefafa;
-  display: flex;
+  justify-content: space-between;
+  width: 236px;
+  height: 120px;
   align-items: center;
+  padding: 8px;
+  margin-bottom: 16px;
   overflow: hidden;
-  h4 {
-    font-size: 1.2rem;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    width: 90%;
-    text-align: center;
-    margin: 0 auto;
+  &:hover {
+    h5,
+    h6 {
+      text-decoration: underline;
+    }
+    .icon-cont {
+      background-color: ${(props) => props.colors.darkBlue};
+    }
+    .lrg-icon {
+      color: ${(props) => props.colors.green};
+    }
+  }
+  .icon-cont {
+    transition: background-color 0.25s ease;
+    background-color: ${(props) => props.colors.green};
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 46px;
+    .lrg-icon {
+      transition: color 0.25s ease;
+    }
   }
 `;
+
+const IconCont = styled.div``;
+
 const Article = (props) => {
   return (
     <Link href={`/article/${props.article.title}`} passHref>
       <a title={props.article.title} rel="noopener noreferrer">
-        <ArticleCont>
-          <div className="flex-one image-cont">
-            <img alt="cover image" src={props.article.coverImage.url} />
-          </div>
+        <ArticleElem colors={COLORS}>
+          {props.article.title.length > 40 ? (
+            <h6>{props.article.title}</h6>
+          ) : (
+            <h5>{props.article.title} </h5>
+          )}
 
-          <TextContent className="flex-one">
-            <h4>{props.article.title}</h4>
-          </TextContent>
-        </ArticleCont>
+          <div className="icon-cont" colors={COLORS}>
+            <ArrowSmRightIcon className="lrg-icon" />
+          </div>
+        </ArticleElem>
       </a>
     </Link>
   );

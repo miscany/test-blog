@@ -68,7 +68,6 @@ const Dropdown = styled.div`
 const SuperSearchTagBox = (props) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownEl = useRef();
-  console.log(props.filterTags);
   const lines = props.filterTags.map((tag) => {
     return (
       <div
