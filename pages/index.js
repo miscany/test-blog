@@ -19,6 +19,12 @@ import Instructions from "../components/Instructions";
 import ChangeView from "../components/Buttons/ChangeView";
 import { useState } from "react";
 
+const ArticlesCount = styled.h3`
+  color: #000;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 5px black;
+`;
 const Header = styled.div`
   align-items: center;
   display: flex;
@@ -457,7 +463,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
             <h1>Aajonus Search</h1>
           </Title>
         </Header>
-
+        <ArticlesCount>{articlesLength} articles</ArticlesCount>
         <PlaceToggle>
           <ChangeView condition={view} func={changeView} />
         </PlaceToggle>
