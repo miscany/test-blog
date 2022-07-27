@@ -467,7 +467,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
         {/*
         <PlaceToggle>
           <ChangeView condition={view} func={changeView} />
-  </PlaceToggle> */}
+  </PlaceToggle> 
         <Header>
           <Title colors={COLORS}>
             <h2 className="light green">
@@ -475,6 +475,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
             </h2>
           </Title>
         </Header>
+  */}
         <SectionSplit style={{ flexDirection: style }}>
           <TopSection>
             <SectionHalf>
