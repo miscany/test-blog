@@ -5,12 +5,14 @@ import Image from "next//image";
 import { ArrowSmRightIcon } from "@heroicons/react/solid";
 const ArticleElem = styled.div`
   background-color: #fff;
-  border: 1px solid ${(props) => props.colors.darkBlue};
+  border: 1px solid ${(props) => props.colors.grey};
   display: flex;
   justify-content: space-between;
   width: 236px;
-
-  height: 120px;
+  h6{
+    color: #000;
+  }
+  
   align-items: center;
   padding: 8px;
   margin-bottom: 16px;
@@ -64,15 +66,7 @@ const Article = (props) => {
     <Link href={`/article/${props.article.title}`} passHref>
       <a title={props.article.title} rel="noopener noreferrer">
         <ArticleElem colors={COLORS}>
-          {props.article.title.length > 40 ? (
-            <h6>{props.article.title}</h6>
-          ) : (
-            <h5>{props.article.title} </h5>
-          )}
-
-          <div className="icon-cont" colors={COLORS}>
-            <ArrowSmRightIcon className="lrg-icon" />
-          </div>
+          <h6>{props.article.title}</h6>
         </ArticleElem>
       </a>
     </Link>

@@ -104,7 +104,7 @@ const SectionHalf = styled.div`
 const BottomSection = styled.div`
   overflow-y: scroll;
   max-height: 800px;
-  max-width: 900px;
+
   margin: 0 auto 6rem;
   flex: 1;
   background-color: ${(props) => props.colors.veryLightBlue};
@@ -444,11 +444,11 @@ const SearchPage = ({ articlesFetch, superTags }) => {
   React.useEffect(() => {
     if (view) {
       setStyle((prevStyle) => {
-        return "column";
+        return "row";
       });
     } else {
       setStyle((prevStyle) => {
-        return "row";
+        return "column";
       });
     }
   }, [view]);

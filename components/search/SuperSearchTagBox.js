@@ -68,17 +68,26 @@ const Dropdown = styled.div`
 const SuperSearchTagBox = (props) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownEl = useRef();
+  console.log("tagggs");
+
+  const tagsText = props.tags.map((tag) => {
+    return tag.title;
+  });
+  console.log(tagsText);
   const lines = props.filterTags.map((tag) => {
-    return (
-      <div
-        key={tag.id}
-        onClick={() => props.removeTag(tag.id)}
-        id={tag.id}
-        className="item"
-      >
-        <p>{tag.title}</p>
-      </div>
-    );
+    if (tagsText.includes(tag.title)) {
+    } else {
+      return (
+        <div
+          key={tag.id}
+          onClick={() => props.removeTag(tag.id)}
+          id={tag.id}
+          className="item"
+        >
+          <p>{tag.title}</p>
+        </div>
+      );
+    }
   });
   const tags = props.tags.map((tag, index) => {
     return (
