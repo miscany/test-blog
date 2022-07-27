@@ -464,10 +464,10 @@ const SearchPage = ({ articlesFetch, superTags }) => {
             <h1>Aajonus Search</h1>
           </Title>
         </Header>
-        
+        /*
         <PlaceToggle>
           <ChangeView condition={view} func={changeView} />
-        </PlaceToggle>
+        </PlaceToggle> */
         <Header>
           <Title colors={COLORS}>
             <h2 className="light green">
