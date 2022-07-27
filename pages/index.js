@@ -225,6 +225,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
     });
   };
   const articlesLength = filterArticles.length;
+  const allArticlesLength = articles.length;
   console.log(articlesLength);
   function IncreaseRender() {
     setRenderCount((prev) => {
@@ -463,7 +464,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
             <h1>Aajonus Search</h1>
           </Title>
         </Header>
-        <ArticlesCount>{articlesLength} articles</ArticlesCount>
+        <ArticlesCount>{allArticlesLength} articles</ArticlesCount>
         <PlaceToggle>
           <ChangeView condition={view} func={changeView} />
         </PlaceToggle>
