@@ -464,7 +464,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
             <h1>Aajonus Search</h1>
           </Title>
         </Header>
-        <ArticlesCount>{allArticlesLength} articles</ArticlesCount>
+        
         <PlaceToggle>
           <ChangeView condition={view} func={changeView} />
         </PlaceToggle>
