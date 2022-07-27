@@ -171,7 +171,7 @@ export const getStaticProps = async () => {
   });
   const query = gql`
     query {
-      articles(first: 5001) {
+      articles(first: 10000) {
         title
         coverImage {
           url
@@ -225,7 +225,7 @@ const SearchPage = ({ articlesFetch, superTags }) => {
     });
   };
   const articlesLength = filterArticles.length;
-
+  console.log(articlesLength);
   function IncreaseRender() {
     setRenderCount((prev) => {
       return prev + 100;
