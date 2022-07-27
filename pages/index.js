@@ -459,11 +459,13 @@ const SearchPage = ({ articlesFetch, superTags }) => {
       <NextSeo {...SEO} />
 
       <div className="container">
+      {/*
         <Header>
           <Title colors={COLORS}>
             <h1>Aajonus Search</h1>
           </Title>
         </Header>
+  */}
         {/*
         <PlaceToggle>
           <ChangeView condition={view} func={changeView} />
